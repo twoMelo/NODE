@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Pegando os elementos do HTML
     const campoCidade = document.getElementById("cidade")
     const botaoBuscar = document.getElementById("buscar")
-    const nomeCidade = document.getElementById("nome-cidade")
+    const nomeCidade = document.getElementById("nomeCidade")
     const temperatura = document.getElementById("temperatura")
     const umidade = document.getElementById("umidade")
     const vento = document.getElementById("vento")
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const resposta = await fetch(`/api/clima?cidade=${cidade}`)
             const dados = await resposta.json()
             //Atualizado os dados do site
-            nomeCidade.textContent = dados.nome
+            nomeCidade.textContent = dados.name
             temperatura.textContent = Math.round(dados.main.temp)
             umidade.textContent = dados.main.humidity
             vento.textContent = Math.round(dados.wind.speed * 3.6)
