@@ -39,7 +39,7 @@ app.get("/converter", async (req, res) => {
     } catch (erro) {
         console.error("Erro detalhado", erro)
         res.status(500).json({
-            erro: "Erro ao converter moeda"
+            erro: "Erro ao converter moeda",
             detalhes: erro.message
         })
 })
