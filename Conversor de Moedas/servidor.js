@@ -42,4 +42,9 @@ app.get("/converter", async (req, res) => {
             erro: "Erro ao converter moeda",
             detalhes: erro.message
         })
+    }
+})
+applisten(porta, () => {
+    console.log(`Servidor rodando em: http://localhost:${porta}`)
+
 })
