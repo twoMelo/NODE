@@ -22,7 +22,7 @@ app.get("/converter", async (req, res) => {
             return res.status(400).json({erro: "Parâmetro Inválido"})
         }
         console.log(`Fazendo requisição API: ${de} -> ${para}, valor: ${valor}`)
-        const url = `https://exchangerate.host/dashboard?reset_access_key=1${API_KEY}&from=${de}&to=${para}&amount=${valor}`
+        const url = `http://api.exchangerate.host/convert?access_key=${API_KEY}&from=${de}&to=${para}&amount=${valor}`
         console.log("URL DA API", url)
 
         const reposta = await fetch(url)
