@@ -24,5 +24,22 @@ app.get("/converter", async (req, res) => {
         console.log(`Fazendo requisição API: ${de} -> ${para}, valor: ${valor}`)
         const url = `http://api.exchangerate.host/convert?access_key=${API_KEY}&from=${de}&to=${para}&amount=${valor}`
         console.log("URL DA API", url)
-    }
+
+        const resposta = await fetch(url)
+        const dados = await resposta.json()
+
+        console.log("Resposta da API", dados)
+
+        if(!dados.success) {
+            throw new Error(`Erro na API ${dados.error?.info || "Erro desconhecido"}`)
+        }
+        res.json({
+            valorConvertido: dados.result
+        })
+    } catch (erro) {
+        console.error("Erro detalhado", erro)
+        res.status(500).json({
+            erro: "Erro ao converter moeda"
+            detalhes: erro.message
+        })
 })
