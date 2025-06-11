@@ -11,21 +11,20 @@ let resolvidos = {
     relogio: false,
     quadro: false,
     armario: false,
-
 }
 
 function menuPrincipal() {
-    console.log("\nVocê está em uma sala trancada")
-    console.log("Ao seu redor, você vê: ")
-    console.log("1. Um grampeador velho")
-    console.log("2. Uma janela fechada")
-    console.log("3. Um monte de papéis amassados na mesa")
-    console.log("4. Um relógio parado na parede")
-    console.log("5. Um quadro misterioso")
-    console.log("6. Um armário fechado")
-    console.log("7. Tentar abrir a porta")
+    console.log("\n🔒 Você está preso em uma sala misteriosa e trancada!")
+    console.log("🕵️‍♂️ Ao seu redor, você observa objetos intrigantes:")
+    console.log("1. 📎 Um grampeador antigo empoeirado")
+    console.log("2. 🪟 Uma janela embaçada com algo escrito")
+    console.log("3. 📜 Um monte de papéis amassados sobre a mesa")
+    console.log("4. ⏰ Um relógio parado pendurado na parede")
+    console.log("5. 🖼️ Um quadro enigmático torto na parede")
+    console.log("6. 🚪 Um armário fechado com um cofre dentro")
+    console.log("7. 🔑 Tentar abrir a porta da sala")
 
-    rl.question("\nO que você deseja fazer? ", (resposta) => {
+    rl.question("\n❓ O que você deseja investigar? ", (resposta) => {
         switch (resposta.trim()) {
             case "1":
                 investigarGrampeador()
@@ -40,7 +39,7 @@ function menuPrincipal() {
                 investigarRelogio()
                 break
             case "5":
-                investigarquadro()
+                investigarQuadro()
                 break
             case "6":
                 investigarArmario()
@@ -49,119 +48,118 @@ function menuPrincipal() {
                 verificarSaida()
                 break
             default:
-                console.log("Escolha inválida.")
+                console.log("⚠️ Escolha inválida! Tente novamente.")
                 menuPrincipal()
         }
     })
 }
-// -----------------------------------------------------------------------------------------------------------
+
 function investigarGrampeador() {
     if(resolvidos.grampeador){
-        console.log("Você já resolveu esse desafio")
+        console.log("✅ Você já resolveu o enigma do grampeador!")
         return menuPrincipal()
     }
-    rl.question("\nDentro do grampeador tem um bilhete: 'Sou cheio de buracos, mas seguro a água. O que sou?' ", (resposta) => {
+    rl.question("\n📎 Você abre o grampeador e encontra um bilhete: 'Sou cheio de buracos, mas seguro a água. O que sou?' ", (resposta) => {
         if (resposta.trim().toLowerCase() === "esponja") {
-            console.log("Acertou! Você desbloqueou a chave que estava no grampeador")
+            console.log("🎉 Acertou! Uma chave brilhante aparece dentro do grampeador!")
             resolvidos.grampeador = true
         } else {
-            console.log("Resposta errada. Tente novamente depois.")
+            console.log("❌ Resposta errada! Volte e tente novamente mais tarde.")
         }
         menuPrincipal()
     })
 }
-// -----------------------------------------------------------------------------------------------------------
+
 function investigarJanela() {
     if(resolvidos.janela){
-        console.log("Você já resolveu esse desafio")
+        console.log("✅ Você já resolveu o enigma da janela!")
         return menuPrincipal()
     }
-    rl.question("\nVocê observa algo escrito no vidro da janela embaçada: 'Não tenho asas, mas posso voar. Não tenho olhos, mas posso te cegar. O que sou?' ", (resposta) => {
+    rl.question("\n🪟 Você limpa a janela embaçada e lê: 'Não tenho asas, mas posso voar. Não tenho olhos, mas posso te cegar. O que sou?' ", (resposta) => {
         if (resposta.trim().toLowerCase() === "luz") {
-            console.log("Acertou! Ao dizer 'luz', uma pequena caixa sob a janela se abre com uma chave dentro.")
+            console.log("🎉 Acertou! Uma caixa secreta sob a janela se abre, revelando uma chave!")
             resolvidos.janela = true
         } else {
-            console.log("Resposta errada. Tente novamente depois.")
+            console.log("❌ Resposta errada! Volte e tente novamente mais tarde.")
         }
         menuPrincipal()
     })
 }
-// -----------------------------------------------------------------------------------------------------------
+
 function investigarPapeis() {
     if(resolvidos.papeis){
-        console.log("Você já resolveu esse desafio")
+        console.log("✅ Você já resolveu o enigma dos papéis!")
         return menuPrincipal()
     }
-    rl.question("\nUm dos papéis diz: 'Qual palavra está sempre escrita errada no dicionário?' ", (resposta) => {
+    rl.question("\n📜 Entre os papéis amassados, um destaca: 'Qual palavra está sempre escrita errada no dicionário?' ", (resposta) => {
         if(resposta.trim().toLowerCase() === "errada") {
-            console.log("Acertou! Você encontrou a chave no meio dos papéis")
+            console.log("🎉 Acertou! Uma chave estava escondida entre os papéis!")
             resolvidos.papeis = true
         } else {
-            console.log("Errou! Não é isso")
+            console.log("❌ Errou! Não é essa a resposta.")
         }
         menuPrincipal()
     })
 }
-// -----------------------------------------------------------------------------------------------------------
-// SUBSTITUIR //
+
 function investigarRelogio() {
     if(resolvidos.relogio) {
-        console.log("Você já resolveu esse desafio")
+        console.log("✅ Você já resolveu o enigma do relógio!")
         return menuPrincipal()
     }
-    rl.question("\nAtrás do relógio de parede há uma anotação: 'Sou sempre usado antes de você me perceber. Estou sempre correndo, mas nunca saio do lugar. O que sou?' ", (resposta) => {
-        if (resposta.trim().toLowerCase().includes("tempo")) {
-            console.log("Acertou! Um compartimento secreto no relógio se abre com uma chave dentro.")
+    rl.question("\n⏰ Atrás do relógio parado, uma nota diz: 'Sou sempre usado antes de você me perceber. Estou sempre correndo, mas nunca saio do lugar. O que sou?' ", (resposta) => {
+        if (resposta.trim().toLowerCase() === "tempo") {
+            console.log("🎉 Acertou! Um compartimento secreto no relógio se abre, revelando uma chave!")
             resolvidos.relogio = true
         } else {
-            console.log("Errou! Não é isso")
+            console.log("❌ Errou! Não é essa a resposta.")
         }
         menuPrincipal()
     })
 }
-// -----------------------------------------------------------------------------------------------------------
-// NOVO //
+
 function investigarQuadro() {
     if(resolvidos.quadro) {
-        console.log("Você já resolveu esse desafio")
+        console.log("✅ Você já resolveu o enigma do quadro!")
         return menuPrincipal()
     }
-    rl.question("\nAtrás do quadro, há um papel colado: 'Quanto mais há de mim, menos você vê. O que sou?' ", (resposta) => {
-        if (resposta.trim().toLowerCase().includes("escuridão")) {
-            console.log("Acertou! Um compartimento atrás do quadro se destrava com uma chave dentro.")
+    rl.question("\n🖼️ Você remove o quadro e encontra: 'Quanto mais há de mim, menos você vê. O que sou?' ", (resposta) => {
+        if (resposta.trim().toLowerCase() === "escuridão") {
+            console.log("🎉 Acertou! Um mecanismo atrás do quadro libera uma chave!")
             resolvidos.quadro = true
         } else {
-            console.log("Errou! Não é isso")
+            console.log("❌ Errou! Não é essa a resposta.")
         }
         menuPrincipal()
     })
 }
-// -----------------------------------------------------------------------------------------------------------
+
 function investigarArmario() {
     if(resolvidos.armario) {
-        console.log("Você já resolveu esse desafio")
+        console.log("✅ Você já resolveu o enigma do armário!")
         return menuPrincipal()
     }
-    rl.question("\nDentro do armário há um cofre com um enigma preso: 'Quanto mais você tira, maior eu fico. O que sou?'", (resposta) => {
-        if (resposta.trim().toLowerCase().includes("buraco")) {
-            console.log("Acertou! O cofre se abre revelando uma chave escondida")
+    rl.question("\n🚪 O armário revela um cofre com a mensagem: 'Quanto mais você tira, maior eu fico. O que sou?' ", (resposta) => {
+        if (resposta.trim().toLowerCase() === "buraco") {
+            console.log("🎉 Acertou! O cofre se abre, revelando uma chave reluzente!")
             resolvidos.armario = true
         } else {
-            console.log("Errou! Não é isso")
+            console.log("❌ Errou! Não é essa a resposta.")
         }
         menuPrincipal()
     })
 }
-// -----------------------------------------------------------------------------------------------------------
+
 function verificarSaida() {
-    if (resolvidos.grampeador && resolvidos.janela && resolvidos.papeis && resolvidos.almofada) {
-        console.log("Você encontorou as 4 chaves")
-        console.log("Parabéns! Você conseguiu escapar da sala!")
-        rl.close
+    if (resolvidos.grampeador && resolvidos.janela && resolvidos.papeis && resolvidos.relogio && resolvidos.quadro && resolvidos.armario) {
+        console.log("\n🔑 Você encontrou todas as 6 chaves!")
+        console.log("🏆 Parabéns! A porta se abre e você escapa da sala misteriosa!")
+        rl.close()
     } else {
-        console.log("A porta ainda esta fechada. Você não resolveu os enigmas")
+        console.log("\n🔒 A porta permanece trancada. Você ainda precisa encontrar mais chaves!")
         menuPrincipal()
     }
 }
-console.log("Bem vindo ao Escape Room")
+
+console.log("🌟 Bem-vindo ao Escape Room! Resolva os enigmas para escapar! 🕵️‍♂️")
 menuPrincipal()
