@@ -15,13 +15,13 @@ let resolvidos = {
 
 function menuPrincipal() {
     console.log("\n🔒 Você está preso em uma sala misteriosa e trancada!")
-    console.log("🕵️‍♂️ Ao seu redor, você observa objetos intrigantes:")
+    console.log(" Voce olha ao seu redor, você observa objetos intrigantes:")
     console.log("1. 📎 Um grampeador antigo empoeirado")
     console.log("2. 🪟 Uma janela embaçada com algo escrito")
     console.log("3. 📜 Um monte de papéis amassados sobre a mesa")
     console.log("4. ⏰ Um relógio parado pendurado na parede")
-    console.log("5. 🖼️ Um quadro enigmático torto na parede")
-    console.log("6. 🚪 Um armário fechado com um cofre dentro")
+    console.log("5. 🖼️  Um quadro enigmático torto na parede")
+    console.log("6. 🚪 Um armário fechado")
     console.log("7. 🔑 Tentar abrir a porta da sala")
 
     rl.question("\n❓ O que você deseja investigar? ", (resposta) => {
@@ -61,7 +61,7 @@ function investigarGrampeador() {
     }
     rl.question("\n📎 Você abre o grampeador e encontra um bilhete: 'Sou cheio de buracos, mas seguro a água. O que sou?' ", (resposta) => {
         if (resposta.trim().toLowerCase() === "esponja") {
-            console.log("🎉 Acertou! Uma chave brilhante aparece dentro do grampeador!")
+            console.log("🎉 Acertou! Uma 1chave brilhante aparece dentro do grampeador!")
             resolvidos.grampeador = true
         } else {
             console.log("❌ Resposta errada! Volte e tente novamente mais tarde.")
